@@ -1,18 +1,39 @@
 from django.contrib import admin
 from .models import TblAcordos, TblCidade, TblCiddplan, TblFidelidade, TblItens, TblPlaniten, TblPlano
 
-def get_model_fields(model):
-    return [field.name for field in model._meta.fields]
+class TblAcordosAdmin(admin.ModelAdmin):
+    list_display = ('acor_id', 'acor_plan', 'acor_fid', 'acor_valor', 'acor_sla', 'acor_padrao', 'acor_ativo')
 
-class DynamicListDisplayAdmin(admin.ModelAdmin):
-    def __init__(self, model, admin_site):
-        super().__init__(model, admin_site)
-        self.list_display = get_model_fields(model)
+admin.site.register(TblAcordos, TblAcordosAdmin)
 
-admin.site.register(TblAcordos, DynamicListDisplayAdmin)
-admin.site.register(TblCidade, DynamicListDisplayAdmin)
-admin.site.register(TblCiddplan, DynamicListDisplayAdmin)
-admin.site.register(TblFidelidade, DynamicListDisplayAdmin)
-admin.site.register(TblItens, DynamicListDisplayAdmin)
-admin.site.register(TblPlaniten, DynamicListDisplayAdmin)
-admin.site.register(TblPlano, DynamicListDisplayAdmin)
+class TblCidadeAdmin(admin.ModelAdmin):
+    list_display = ('cdd_id', 'cdd_nome', 'cdd_uf', 'cdd_ativo')
+
+admin.site.register(TblCidade, TblCidadeAdmin)
+
+class TblCiddplanAdmin(admin.ModelAdmin):
+    list_display = ('cdd', 'plan')
+
+admin.site.register(TblCiddplan, TblCiddplanAdmin)
+
+class TblFidelidadeAdmin(admin.ModelAdmin):
+    list_display = ('fid_id', 'fid_qtdemeses', 'fid_ativo')
+
+admin.site.register(TblFidelidade, TblFidelidadeAdmin)
+
+class TblItensAdmin(admin.ModelAdmin):
+    list_display = ('item_id', 'item_nome','item_detalhe', 'item_linkexterno'  , 'item_ativo')
+
+admin.site.register(TblItens, TblItensAdmin)
+
+class TblPlanitenAdmin(admin.ModelAdmin):
+    list_display = ('item', 'plan')
+
+admin.site.register(TblPlaniten, TblPlanitenAdmin)
+
+class TblPlanoAdmin(admin.ModelAdmin):
+    list_display = ('plan_id', 'plan_nome', 'plan_valor', 'plan_taxaup', 'plan_taxadown', 'plan_destacarplano', 'plan_textdestaque', 'plan_tipocliente', 'plan_tipolink', 'plan_ativo')
+
+admin.site.register(TblPlano, TblPlanoAdmin)
+
+
