@@ -17,7 +17,7 @@ class AuthGroupPermissions(models.Model):
     class Meta:
         managed = False
         db_table = 'auth_group_permissions'
-        unique_together = (('group', 'permission'))
+        unique_together = (('group', 'permission'),)
 
 
 class AuthPermission(models.Model):
@@ -28,7 +28,7 @@ class AuthPermission(models.Model):
     class Meta:
         managed = False
         db_table = 'auth_permission'
-        unique_together = (('content_type', 'codename'))
+        unique_together = (('content_type', 'codename'),)
 
 
 class AuthUser(models.Model):
@@ -56,7 +56,7 @@ class AuthUserGroups(models.Model):
     class Meta:
         managed = False
         db_table = 'auth_user_groups'
-        unique_together = (('user', 'group'))
+        unique_together = (('user', 'group'),)
 
 
 class AuthUserUserPermissions(models.Model):
@@ -67,7 +67,7 @@ class AuthUserUserPermissions(models.Model):
     class Meta:
         managed = False
         db_table = 'auth_user_user_permissions'
-        unique_together = (('user', 'permission'))
+        unique_together = (('user', 'permission'),)
 
 
 class DjangoAdminLog(models.Model):
@@ -91,7 +91,7 @@ class DjangoContentType(models.Model):
     class Meta:
         managed = False
         db_table = 'django_content_type'
-        unique_together = (('app_label', 'model'))
+        unique_together = (('app_label', 'model'),)
 
 
 class DjangoMigrations(models.Model):
