@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "apps.core",
-    "apps.planos"
+    "apps.planos",
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -76,24 +77,24 @@ WSGI_APPLICATION = "projeto.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / "db.sqlite3",  # BASE_DIR é a variável que geralmente aponta para o diretório do seu projeto
-    }
-}
-
-
 # DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.mysql",
-#         "NAME": "planos",
-#         "USER": "root",
-#         "PASSWORD": "root",
-#         "HORST": "localhost",
-#         "PORT": "3306",
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / "db.sqlite3",  # BASE_DIR é a variável que geralmente aponta para o diretório do seu projeto
 #     }
 # }
+
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "u129043112_planos",
+        "USER": "u129043112_userplanos",
+        "PASSWORD": "IuRdCGNk=3M",
+        "HOST": "194.195.84.103",
+        "PORT": "3306",
+    }
+}
 
 
 # Password validation
